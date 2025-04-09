@@ -38,6 +38,7 @@ public class CashCardController {
 
     @PostMapping
     private ResponseEntity<Void> createCashCard(@RequestBody CashCard newCashCardRequest, UriComponentsBuilder ucb) {
+        System.out.println("Received request: " + newCashCardRequest);
         CashCard savedCashCard = cashCardRepository.save(newCashCardRequest);
         URI locationOfNewCashCard = ucb
             .path("cashcards/{id}")
